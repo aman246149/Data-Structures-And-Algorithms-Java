@@ -1,12 +1,13 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
+import java.util.Stack;
 
 
 
 public class BinaryTreeQuestions extends BinaryTree{
     public static void main(String[] args) {
       BinaryTreeQuestions bt=new BinaryTreeQuestions();
-      bt.createBinaryTree();
     //   boolean ans=BinaryTreeQuestions.findElementInBinaryTree(bt.root, 7);
     //   System.out.println(ans);
     //   path.forEach(action->System.out.println(action));
@@ -14,9 +15,23 @@ public class BinaryTreeQuestions extends BinaryTree{
     // BinaryTreeQuestions.printKLevelsFar(bt.root,5,1);
     // BinaryTreeQuestions.rootToLeafPathWithGivenRange(bt.root, " ", 0, 1, 10);
     // bt.levelOrderTraversal(bt.root);
-    bt.levelOrderTraversal(bt.root);
+    // bt.levelOrderTraversal(bt.root);
     // BinaryTreeQuestions.printLeafNode(bt.root);
-     System.out.println( bt.TopViews(bt.root));
+    //  System.out.println( bt.TopViews(bt.root));
+    // System.out.println(bt.printBoundary(bt.root));
+        
+        // System.out.println(bt.MinCamerasInBT(bt.root));
+        // int keys[] = { 20, 8, 22, 4, 12, 10, 14 };
+        // for (int x : keys)
+        //     bt.createBinaryTree(bt.root, x);
+        // bt.kthSmallest(bt.root,3);
+
+        bt.createBinaryTree();
+        // bt.sumNumbers(bt.root);
+        bt.hasPathSum(bt.root,8);
+    //     bt.levelOrderTraversal(bt.root);
+    //    System.out.println( bt.solve(bt.root));
+        
     }
     static ArrayList<TreeNode> path=new ArrayList<>();
    
@@ -154,7 +169,232 @@ public class BinaryTreeQuestions extends BinaryTree{
         return ans;
     }
  
+   static  ArrayList <Integer> printBoundary(TreeNode node)
+	{
+	    ArrayList<Integer> ans=new ArrayList<>();
+	    
+	    if(node==null){
+	        return ans;
+	    }
+	    
+	    printLeftTree(node,ans);
+	    printLeafNode(node,ans);
+	    PrintRightTree(node.right,ans);
+	    return ans;
+	    
+	}
+	
+    static  void printLeafNode(TreeNode root,ArrayList<Integer> ans){
+        if(root ==null){
+            return;
+        }
+        
+        printLeafNode(root.left,ans);
+        
+        if(root.left==null && root.right==null){
+            ans.add(root.data);
+        }
+        
+        printLeafNode(root.right,ans);
+    }
+    static	void printLeftTree(TreeNode root,ArrayList<Integer> ans){
+	    if(root==null){
+	        return;
+	    }
+	    if(root.left!=null){
+	        ans.add(root.data);
+	        printLeftTree(root.left, ans);
+	    }else if(root.right!=null){ 
+	        ans.add(root.data);
+	      printLeftTree(root.right, ans);
+
+	    }
+	}
+	
+    static	void PrintRightTree(TreeNode root,ArrayList<Integer> ans){
+        if (root==null) {
+            return;
+        }
+
+        if (root.right!=null) {
+            PrintRightTree(root.right, ans);
+            ans.add(root.data);
+        } else if(root.left!=null){
+            PrintRightTree(root.left, ans);
+            ans.add(root.data);
+        }
+	}
+
+    static int cameras=0;
+
+    static int MinCamerasInBT(TreeNode root){
+        if(mincamerasInBt(root)==-1){ //handle last case;
+            cameras++;
+        }
+
+        return cameras;
+       
+    }
+
+    static int mincamerasInBt(TreeNode root){
+        if(root==null){
+            return 1;
+        }
+
+        int lchild=mincamerasInBt(root.left);
+        int rchild=mincamerasInBt(root.right);
+
+        if(lchild==-1 || rchild==-1){
+            cameras++;
+            return 0;
+        }
+
+        if(lchild==0 || rchild==1){
+            return 1;
+        }
+
+        return -1;
+    }
+
+    static int count=0;
+    public static TreeNode kthSmallest (TreeNode root, int k)
+    {
+        // base case
+        if (root == null)
+            return null;
+      
+        // search in left subtree
+        TreeNode left = kthSmallest(root.left, k);
+      
+        // if k'th smallest is founkthSmallestd in left subtree, return it
+        if (left != null)
+            return left;
+      
+        // if current element is k'th smallest, return it
+        count++;
+        if (count == k)
+            return root;
+      
+        // else search in right subtree
+        return kthSmallest(root.right, k);
+    }
 
 
+     public ArrayList<Integer> solve(TreeNode A) {
+        Stack<Integer> st=new Stack<>();
+        ArrayList<Integer>ans=new ArrayList<>();
+        LinkedList<TreeNode> que=new LinkedList<>();
+        
+        
+        
+        que.addLast(A);
+        System.out.println(que);
+        while(que.size()!=0){
+            int size=que.size();
+            ArrayList<Integer> small=new ArrayList<>();
+            while(size-- >0){
+                        TreeNode rn=que.removeFirst();
+                        small.add(rn.data);
+                     
+                        if(rn.left!=null){
+                            que.addLast(rn.left);
+                        }
+                        
+                        if(rn.right!=null){
+                            que.addLast(rn.right);
+                        }
+                     }
+            Collections.reverse(small);
+            for(int i=0;i<small.size();i++){
+                   st.push(small.get(i));
+            }
+        }
+        
+
+        
+        while(!st.isEmpty()){
+            int top=st.peek();
+            ans.add(top);
+            st.pop();
+            
+        }
+        
+        
+        
+        return ans;
+    }
+
+    // public static int sum = 0, mod = 1003; 
+
+    // public static void pathSum(TreeNode A, int currSum){ 
+
+    //     if(A == null){ 
+
+    //         return; 
+
+    //     } 
+
+    //     currSum = (currSum*10 + A.data)%mod; 
+
+    //     if(A.left == null && A.right == null){ 
+
+    //         sum = (sum + currSum)%mod; 
+
+    //         return; 
+
+    //     } 
+
+    //     pathSum(A.left, currSum); 
+
+    //     pathSum(A.right, currSum); 
+
+    // } 
+
+    // public int sumNumbers(TreeNode A) { 
+
+    //     sum = 0; 
+
+    //     pathSum(A, 0); 
+
+    //     return(sum); 
+
+    // } 
+
+
+    static int  sum=0;
+    static boolean  isfound=false;
+    public static int hasPathSum(TreeNode A, int B) {
+        dfs(A,B,0);
+        if(isfound){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+    
+   static void dfs(TreeNode root,int B,int tempsum){
+        if(root==null)return ;
+       
+        tempsum=tempsum+root.data;
+        sum=tempsum;
+        
+        
+        if(sum==B){
+            isfound=true;
+            return ;
+        }
+        
+        dfs(root.left,B,tempsum);
+        dfs(root.right,B,tempsum);
+        
+    }
+    
+      
     
 }
+
+
+
+
+
+

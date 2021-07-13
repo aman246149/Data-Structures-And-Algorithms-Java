@@ -14,29 +14,21 @@ public class BinaryTree {
     }
 
     public void createBinaryTree(){
-        TreeNode first=new TreeNode(1);
-        TreeNode second=new TreeNode(2);
-        TreeNode third=new TreeNode(3);
-        TreeNode fourth=new TreeNode(4);
-        // TreeNode fifth=new TreeNode(5);
-        // TreeNode sixth=new TreeNode(6);
-        // TreeNode seventh=new TreeNode(7);
-        // TreeNode eight=new TreeNode(8);
-        // TreeNode ninth=new TreeNode(9);
-        // TreeNode tenth=new TreeNode(10);
-        // TreeNode eleventh=new TreeNode(11);
-        root=first;
-        first.left=second;
-        first.right=third;
-        second.left=fourth;
-        // second.right=fifth;
-        // third.left=sixth;
-        // third.right=seventh;
-        // fourth.left=eight;
-        // fourth.right=ninth;
-        // fifth.left=tenth;
-        // fifth.right=eleventh;
-        
+        TreeNode one=new TreeNode(1);
+        TreeNode two=new TreeNode(2);
+        TreeNode three=new TreeNode(3);
+        TreeNode four=new TreeNode(4);
+        TreeNode five=new TreeNode(5);
+        TreeNode six=new TreeNode(6);
+        TreeNode seven=new TreeNode(7);
+
+        root=one;
+        one.left=two;
+        one.right=three;
+        two.left=four;
+        two.right=five;
+        three.left=six;
+        three.right=seven;
 
     }
 
