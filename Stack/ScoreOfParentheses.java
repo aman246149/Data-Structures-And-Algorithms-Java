@@ -37,8 +37,9 @@ class ScoreOfParenthesestion {
                     while( st.peek()!=-1){
                        val+=st.pop();
                     }
-                    st.pop();//last closing bracket bach gaya pop it
-                    st.push(2*val);//add it in stack
+                    st.pop();//last openining bracket bach gaya pop it
+                    //ab hama pata ha ki while loop chala toh iska matlab ya ha kee multiple  opening and closing ha (()())
+                    st.push(2*val);//add it in stack   multiply by 2
                 }
             }
         }

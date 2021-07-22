@@ -1,5 +1,23 @@
 import java.util.Stack;
 
+/*
+Largest Rectangle in Histogram
+    
+why we store index in this problem
+1-> Bacially in this we have to find the largest rectangle in histogram.so largest area will be difference in index * height.
+2-> So if we store index in this problem then we can find the largest rectangle in histogram.
+3-> so we create left array for storing index of left side of rectangle.
+3.1-> todo clear the stack
+4-> we create right array for storing index of right side of rectangle.
+5-> find max area.
+6-> by simply using  for a particualr index we calulate its width =rightlimit-leftlimit+1
+7-> than we calculate area by using area=width*arr[i];  where arr[i] is height of rectangle.]
+8->than calulate max area. maxarea=Math.max(area,maxarea);
+
+
+
+*/
+
 public class LargestRectangleInHistogram {
     public static void main(String[] args) {
         int arr[]={2,1,5,6,2,3};

@@ -18,10 +18,10 @@ class ExclusiveTimeOfFunctions {
             }else{                        //if we got end pop the data from the stack
                 pair p=st.pop();
                 int diff=Integer.parseInt(data[2])-p.st_or_ed_time+1;   //calculate the differece for interval by simply substracting  endData-startData+1
-                int timeforchild=diff-p.child_time;                     //we got child time by simply substracting diffenece- previous childtime
-                ans[p.id]+=timeforchild;
+                int timefornextchild=diff-p.child_time;                     //we got child time by simply substracting diffenece- previous childtime
+                ans[p.id]+=timefornextchild;
                 
-                if(st.size()>0){                                       // notify parent about their children
+                if(st.size()>0){           //agar parent ha toh   // notify parent about their children
                     st.peek().child_time+=diff;
                 }
             }

@@ -12,7 +12,11 @@ ALGORITHM
  4-> IF WE FOUND SOMETHING INVALID IN OUR STRING
  MAKE IF FLAG IN OUR ARRAY IN THAT PARICULAR POSITION
 
-
+example 
+    (a(b)c)d)
+    if we only see bracket then
+    ( ( ) ) )
+    this is invalid we have to remove one closing bracket to make it valid
 */
 
 // 1249. Minimum Remove to Make Valid Parentheses

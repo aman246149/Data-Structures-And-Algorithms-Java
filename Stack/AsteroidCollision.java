@@ -8,7 +8,7 @@ class AsteroidCollision {
                 st.push(ele);
             }else{  //if we have nevative value 4 case are made
                 while(st.size()>0 && st.peek()>0 && st.peek()<-ele){  
-                    //case 1 if peekvalue is small than current element which is in opposite direction.pop till we get big value
+                    //case 1 if peekvalue is(+ve) and small than current element which is in opposite direction.pop till we get big value
                     st.pop();
                 }
                 if(st.size()>0 && st.peek()==-ele){

@@ -2,6 +2,10 @@ import java.util.*;
 //leetcode 227
 
 /*
+
+
+s consists of integers and operators ('+', '-', '*', '/') 
+
 Algorithm
 1. + push value in stack
 2. - push value in stack after chainging its sign to -ve
@@ -21,7 +25,7 @@ class BasicCalculator2 {
             
             if(Character.isDigit(ch)){ //if we have digit
                                   //make it complete number
-                    val=val*10+(ch-'0');
+                    val=val*10+(ch-'0'); 
                   
                 }
         if(i+1==s.length() || ch=='+' || ch=='-' || ch=='*' || ch=='/'){ //if we have operators

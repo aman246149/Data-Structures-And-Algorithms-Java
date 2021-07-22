@@ -6,8 +6,8 @@ class RemoveKDigit {
         
             for(int i=0;i<num.length();i++){
                 char ch=num.charAt(i);
-                while(st.size()>0 && k>0 && st.peek()>ch){//non decreasing order
-                    st.pop();
+                while(st.size()>0 && k>0 && st.peek()>ch){//non decreasing order 
+                    st.pop();   //idar k ki value 0 sa badii ha
                     k--;
                 }
                 st.push(ch);
@@ -34,7 +34,7 @@ class RemoveKDigit {
                 
                 //case 1:
                 //when we got our char array like 00200
-                //here  0 is unnecessary remove it ,then we got 0200
+                //here  0 is unnecessary remove it ,then we got 200
                 int d=0;
                 while(d<ans.length && ans[d]=='0'){
                     d++;

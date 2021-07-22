@@ -25,7 +25,7 @@ class _132Pattern {
 //                 int this case k is st.peek();
             }
             
-            st.push(nums[j]);
+            st.push(nums[j]); //preivous ha ya
 //             pushing k;
             
         }

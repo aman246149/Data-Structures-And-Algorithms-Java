@@ -2,6 +2,17 @@
 import java.io.*;
 import java.util.*;
 
+
+/*
+perform different operatiion on stack
+1. push
+2. pop
+3. peekMax
+4. popMax
+5. popTop
+6. top
+*/
+
  class Max {
   public static class MaxStack {
 
@@ -35,23 +46,23 @@ Stack<Integer> data,max;
       return max.peek();
     }
 
-    public int popMax() {
-        int tbr=max.peek();
+    public int popMax() { //pop max element
+        int tbr=max.peek(); //take max element from max stack
         
-        Stack<Integer> buffer=new Stack<>();
+        Stack<Integer> buffer=new Stack<>(); //create buffer stack
         while(data.peek()!=tbr){
-            int res=pop();
+            int res=pop(); //pop function pop max and data 
             buffer.push(res);
         }
         
-        pop();
+        pop();   //pop max element here
         
         while(buffer.size()>0){
         int res=  buffer.pop();
-        push(res);
+        push(res);  //push data in original stack
         }
         
-      return tbr;
+      return tbr;  //return popmax element
     }
 
   }

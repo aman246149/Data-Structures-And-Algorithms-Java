@@ -3,6 +3,11 @@ import java.util.*;
 
 //using both caluculation 1 and caluculation 2 tactic
 
+/*
+Basic calcuator 1 sa hum bracket solve karna sikanga
+Basic calculator 2 sa hum + ,- ,*,/ karna sikanga
+
+*/
  class Main {
   static class Pair {   //creating pair class to store previous stack and sign
     Stack<Integer> stP;
@@ -16,7 +21,7 @@ import java.util.*;
 
   public static int calculate(String s) {   //using calculate 2 tactic here
     Stack<Pair> stP = new Stack<>();       //creating new pair type stack 
-    Stack<Integer> st = new Stack<>();
+    Stack<Integer> st = new Stack<>(); //main stack jo  ki hold karega pair stack vala ko 
     int n = s.length();
     char sign = '+';
     for (int i = 0; i < s.length(); i++) {
@@ -40,11 +45,11 @@ import java.util.*;
           Pair p = stP.pop();  //pop previous data from stack
           int sum = 0;
           while (st.size() > 0)  //calcutate data 
-            sum += st.pop();
-          st = p.stP;  
-          sign = p.sign;
+            sum += st.pop(); //ya hamara B vala part ho gaya phela hum isa calculate kareinga then hum is A wala ka sath add karenga
+          st = p.stP;       // restore stack
+          sign = p.sign;   //restore sign
           cal(st, sign, sum);
-        } else if (ch != ' ') {
+        } else if (ch != ' ') {  // agar vo space nahi hai toh voh sign ha
           sign = ch;
         }
     }

@@ -35,7 +35,7 @@ class ReverseSubstringBetweenEachPair {
                 while(st.peek()!='('){
                     que.add(st.pop());    
                 }
-                st.pop();
+                st.pop(); //bracket bacha isa pop kar dia
                 
                 while(!que.isEmpty()){
                     st.push(que.remove());

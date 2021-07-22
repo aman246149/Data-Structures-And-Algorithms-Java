@@ -1,5 +1,12 @@
 import java.util.Stack;
 
+/*
+priority dakni ha
+* / KI PRIORITY SAME HA
++ - KI SAME HA
+ONLY FOR SINGLE DIGIT
+*/
+
 public class InfixEvaluation {
     public static void main(String[] args) {
         String input="2+(5-3*6/2)";
@@ -23,7 +30,7 @@ public class InfixEvaluation {
                     opnds.push(opv);
 
                 }
-                optors.pop();//ek pop or karenga kyu ki uppar valli condition sa closing bracket nahi nikal paya tha
+                optors.pop();//ek pop  ( or karenga kyu ki uppar valli condition sa closing bracket nahi nikal paya tha
 
             }else if(ch=='+' || ch=='-' || ch=='*' || ch=='/'){
                 while (optors.size()>0 && optors.peek()!='(' && precedence(ch)<=precedence(optors.peek())) { 

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class SlidingWindowMaximum {
@@ -34,7 +35,7 @@ public class SlidingWindowMaximum {
 
     int j=0;
 
-    for(int i=0;i<=arr.length-windowSize;i++){
+    for(int i=0;i<=arr.length-windowSize;i++){  //chalega window size sa phela tak taaki overflow na ho jaaya
         if(j<i){
             j=i;
         }
@@ -45,5 +46,6 @@ public class SlidingWindowMaximum {
         System.out.print(arr[j]+" ");
     }
 
+      
  }
 }
