@@ -48,7 +48,7 @@ class ScoreOfParenthesestion {
         // ya tab hoga jab ()() esa kuch hoga
         // kyu ki isa hamna kaali stack ma push hee kiya ha 
         // iss case ma inha pop karo or return kardo
-        while(st.size()>0){
+        while(st.size()>0){ //todo stack ma sa value nikalka return kardo
             val+=st.pop();
         }
         

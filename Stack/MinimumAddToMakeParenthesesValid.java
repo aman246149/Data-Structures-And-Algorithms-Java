@@ -7,8 +7,9 @@ Example 2:
 Input: s = "((("
 Output: 3
 
-iss question ma hame minimum parenthiss chahia taaaki hum
-usa valid kar sakka
+iss question ma hame minimum parenthiss remove karana ha taaki vo valid ho jaaya
+
+here empty string is also a valid string
 
 */
 
